@@ -52,6 +52,13 @@ public class LogInLogOutStepDefs {
 		String title = headerLabel.getText();
 		assertEquals("Secure Area", title);
 	}
+	
+	@Then("she is on the login page")
+	public void she_is_on_the_login_page() {
+		WebElement headerLabel = driver.findElement(By.tagName("h2"));
+		String title = headerLabel.getText();
+		assertEquals("Login Page", title);
+	}
 
 	@Then("she sees {string}")
 	public void she_sees(String successMessage) {
@@ -60,4 +67,12 @@ public class LogInLogOutStepDefs {
 		assertThat(text, containsString(successMessage));
 		driver.close();
 	}
+	
+//	@Then("she sees {string}")
+//	public void she_sees_error(String errorMessage) {
+//		WebElement divError = driver.findElement(By.id("flash"));
+//		String text = divError.getText();
+//		assertThat(text, containsString(errorMessage));
+//		driver.close();
+//	}
 }
