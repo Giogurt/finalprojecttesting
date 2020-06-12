@@ -4,7 +4,7 @@ Feature: LogIn and LogOut
   	Given the user is on the login page
   	When she fills in "username" with "tomsmith"
   	And she fills in "password" with "SuperSecretPassword!"
-  	And she presses "Login"
+  	And she presses "radius"
   	Then she is on the users secure area
   	And she sees "You logged into a secure area!"
   	

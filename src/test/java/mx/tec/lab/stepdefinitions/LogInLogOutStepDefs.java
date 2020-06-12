@@ -30,14 +30,20 @@ public class LogInLogOutStepDefs {
 	
 	@When("she fills in {string} with {string}")
 	public void she_fills_in_with(String inputId, String inputValue) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    WebElement usernameField = driver.findElement(By.id(inputId));
+	    usernameField.sendKeys(inputValue);
 	}
 
+	@When("And she fills in {string} with {string}")
+	public void she_fills_in_password_with(String passId, String passValue) {
+	    WebElement passwordField = driver.findElement(By.id(passId));
+	    passwordField.sendKeys(passValue);
+	}
+	
 	@When("she presses {string}")
 	public void she_presses(String buttonName) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    WebElement submitButton = driver.findElement(By.className(buttonName));
+	    submitButton.click();
 	}
 
 	@Then("she is on the users secure area")
