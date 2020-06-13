@@ -45,19 +45,16 @@ public class LogInLogOutStepDefs {
 	    WebElement submitButton = driver.findElement(By.className(buttonName));
 	    submitButton.click();
 	}
-
-	@Then("she is on the users secure area")
-	public void she_is_on_the_users_secure_area() {
-		WebElement headerLabel = driver.findElement(By.tagName("h2"));
-		String title = headerLabel.getText();
-		assertEquals("Secure Area", title);
-	}
 	
-	@Then("she is on the login page")
-	public void she_is_on_the_login_page() {
+	@Then("she is redirected to the next page")
+	public void she_is_redirected() {
 		WebElement headerLabel = driver.findElement(By.tagName("h2"));
 		String title = headerLabel.getText();
-		assertEquals("Login Page", title);
+		if (title == "Login Page") {
+			assertEquals("Login Page", title);
+		} else if (title == "Secure Area") {
+			assertEquals("Secure Area", title);
+		}
 	}
 
 	@Then("she sees {string}")
