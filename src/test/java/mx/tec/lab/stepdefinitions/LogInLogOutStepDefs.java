@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -20,7 +21,8 @@ public class LogInLogOutStepDefs {
 	
 	@Given("the user is on the login page")
 	public void the_user_is_on_the_login_page() {
-        System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver_83.0.4103.39\\chromedriver.exe");
+		String basePath = new File("").getAbsolutePath();
+        System.setProperty("webdriver.chrome.driver", basePath + "\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/login");
