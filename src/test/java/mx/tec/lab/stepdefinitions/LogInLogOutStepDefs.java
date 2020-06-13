@@ -28,12 +28,8 @@ public class LogInLogOutStepDefs {
         driver.get("http://the-internet.herokuapp.com/login");
 	}
 	
-	@Given("the user is on the secure page")
+	@When("the user access the secure page")
 	public void the_user_is_on_the_secure_page() {
-		String basePath = new File("").getAbsolutePath();
-        System.setProperty("webdriver.chrome.driver", basePath + "\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/secure");
 	}
 	

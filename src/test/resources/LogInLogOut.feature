@@ -1,6 +1,6 @@
 Feature: LogIn and LogOut
   
-  	Scenario: Client logins with valid credentials
+  Scenario: Client logins with valid credentials
   	Given the user is on the login page
   	When she fills in "username" with "tomsmith"
   	And she fills in "password" with "SuperSecretPassword!"
@@ -26,7 +26,8 @@ Feature: LogIn and LogOut
   	Then she is redirected to the next page
   	And she sees "You logged out of the secure area!"
   	
-  	Scenario: Client access secure page without logging in
-  	Given the user is on the secure page
+  Scenario: Client access secure page without logging in
+  	Given the user is on the login page
+  	When the user access the secure page
   	Then she sees "You must login to view the secure area!"
   	
