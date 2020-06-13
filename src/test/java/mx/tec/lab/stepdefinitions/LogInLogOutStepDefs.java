@@ -61,15 +61,7 @@ public class LogInLogOutStepDefs {
 	public void she_sees(String successMessage) {
 		WebElement divSuccess = driver.findElement(By.id("flash"));
 		String text = divSuccess.getText();
-		assertThat(text, containsString(successMessage));
+		assertThat(text.trim(), containsString(successMessage));
 		driver.close();
 	}
-	
-//	@Then("she sees {string}")
-//	public void she_sees_error(String errorMessage) {
-//		WebElement divError = driver.findElement(By.id("flash"));
-//		String text = divError.getText();
-//		assertThat(text, containsString(errorMessage));
-//		driver.close();
-//	}
 }

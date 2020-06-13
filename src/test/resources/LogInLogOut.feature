@@ -1,5 +1,5 @@
 Feature: LogIn and LogOut
- 
+
   Scenario: Client logins with valid credentials
   	Given the user is on the login page
   	When she fills in "username" with "tomsmith"
@@ -15,3 +15,14 @@ Feature: LogIn and LogOut
   	And she presses "radius"
   	Then she is redirected to the next page
   	And she sees "Your password is invalid!" 
+  	
+   Scenario: A logged in client logs out from the account
+  	Given the user is on the login page
+  	When she fills in "username" with "tomsmith"
+  	And she fills in "password" with "SuperSecretPassword!"
+  	And she presses "radius"
+  	Then she is redirected to the next page
+  	And she presses "radius"
+  	Then she is redirected to the next page
+  	And she sees "You logged out of the secure area!"
+  	
